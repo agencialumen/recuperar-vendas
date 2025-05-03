@@ -6,16 +6,16 @@ import { Button } from "@/components/ui/button"
 import { CheckCircle } from "lucide-react"
 import Link from "next/link"
 
-// ===== CONFIGURAÇÕES DO VÍDEO - EDITE APENAS ESTAS LINHAS =====
-// URL do vídeo (YouTube, Vimeo, etc.)
-const VIDEO_URL = "https://vimeo.com/1081126802?share=copy" // Substitua pelo seu link de vídeo
+// ===== CONFIGURAÇÕES SIMPLES DO VÍDEO =====
+// Link de incorporação do vídeo (YouTube, Vimeo, etc.)
+const VIDEO_URL = "https://www.youtube.com/embed/cba9xWne06c?si=UiMf-hpH8AqKwGWH" // Substitua pelo seu link
 
-// URL da imagem de capa (thumbnail)
-const THUMBNAIL_URL = "https://iili.io/3wF4CjR.jpg" // Substitua pelo URL da sua imagem de capa
+// Link da imagem de capa (thumbnail)
+const THUMBNAIL_URL = "https://iili.io/3wF4CjR.jpg" // Substitua pelo link da sua imagem
 
 // Duração do vídeo em segundos (para mostrar a oferta)
-const VIDEO_DURATION = 50 // Substitua pela duração real do seu vídeo em segundos
-// =============================================================
+const VIDEO_DURATION = 50 // Substitua pela duração do seu vídeo
+// =========================================
 
 export default function VideoPlayer() {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -58,7 +58,7 @@ export default function VideoPlayer() {
                 Descubra como este método natural está transformando a saúde de milhares de crianças
               </h3>
               <p className="text-gray-200 text-xs">
-                -
+                Uma mensagem especial para você de uma mãe que já passou pelo mesmo desafio
               </p>
             </div>
             <button
