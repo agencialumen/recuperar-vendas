@@ -68,7 +68,7 @@ export default function VideoPlayer() {
           poster="https://iili.io/3jkPClt.jpg"
         >
           {/* Substitua o src abaixo pelo URL do seu vídeo real */}
-          <source src="https://www.instagram.com/reel/DEnT3rhvnmZ/?igsh=c29qdWY0bXg3aXJx" type="video/mp4" />
+          <source src="https://drive.google.com/file/d/1_8SiPuzoSqFN3WcTYfUGy0-W_Zfz_x2C/view?usp=sharing" type="video/mp4" />
           Seu navegador não suporta vídeos HTML5.
         </video>
 
