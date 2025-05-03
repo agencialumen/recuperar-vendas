@@ -1,52 +1,54 @@
-# Como Adicionar Seu Vídeo
+# Como Configurar Seu Vídeo
 
-## Opção 1: Usando Google Drive
+## Configurações Simples
 
-1. Faça upload do seu vídeo para o Google Drive
-2. Clique com o botão direito no arquivo e selecione "Compartilhar"
-3. Clique em "Qualquer pessoa com o link pode visualizar"
-4. Copie o link compartilhável
-5. Abra o arquivo `components/video-player.tsx`
-6. Substitua o valor da constante `VIDEO_URL` pelo seu link do Google Drive:
+Abra o arquivo `components/video-player.tsx` e edite apenas as três constantes no topo do arquivo:
 
 \`\`\`javascript
-const VIDEO_URL = "seu-link-do-google-drive-aqui"
+// URL do vídeo (YouTube, Vimeo, etc.)
+const VIDEO_URL = "https://player.vimeo.com/video/76979871" // Substitua pelo seu link de vídeo
+
+// URL da imagem de capa (thumbnail)
+const THUMBNAIL_URL = "/placeholder.svg?height=360&width=640" // Substitua pelo URL da sua imagem de capa
+
+// Duração do vídeo em segundos (para mostrar a oferta)
+const VIDEO_DURATION = 30 // Substitua pela duração real do seu vídeo em segundos
 \`\`\`
 
-O componente automaticamente converte o link do Google Drive para um formato incorporável.
+## Como Obter os Links Corretos
 
-## Opção 2: Usando Vimeo, YouTube ou outro serviço
+### Para Vimeo:
 
-Para melhor performance e confiabilidade, recomendamos usar um serviço de hospedagem de vídeo como Vimeo ou YouTube:
+1. Faça upload do seu vídeo para o Vimeo
+2. Vá para o vídeo e clique em "Compartilhar"
+3. Clique na aba "Incorporar"
+4. Copie o URL do src do iframe (exemplo: `https://player.vimeo.com/video/123456789`)
+5. Cole este URL na constante `VIDEO_URL`
 
-1. Faça upload do seu vídeo para Vimeo, YouTube ou outro serviço
-2. Obtenha o link de incorporação (embed)
-3. Abra o arquivo `components/video-player-alternative.tsx`
-4. Substitua o valor da constante `VIDEO_URL` pelo link de incorporação:
+### Para YouTube:
 
-\`\`\`javascript
-const VIDEO_URL = "seu-link-de-incorporacao-aqui"
-\`\`\`
+1. Faça upload do seu vídeo para o YouTube
+2. Vá para o vídeo e clique em "Compartilhar"
+3. Clique em "Incorporar"
+4. Copie o URL do src do iframe (exemplo: `https://www.youtube.com/embed/abcdefgh`)
+5. Cole este URL na constante `VIDEO_URL`
 
-5. Renomeie `video-player-alternative.tsx` para `video-player.tsx` (substituindo o arquivo original)
+### Para a Thumbnail:
 
-## Ajustando o Tempo para Mostrar a Oferta
-
-Por padrão, a oferta aparece 30 segundos após o início do vídeo (para fins de demonstração). Para ajustar este tempo:
-
-1. Localize esta linha no arquivo:
-
-\`\`\`javascript
-setTimeout(() => {
-  setVideoCompleted(true)
-}, 30000) // 30 segundos
-\`\`\`
-
-2. Altere `30000` para a duração do seu vídeo em milissegundos (por exemplo, 120000 para 2 minutos)
+1. Faça upload da sua imagem para qualquer serviço de hospedagem de imagens ou para o seu próprio servidor
+2. Copie o URL direto da imagem
+3. Cole este URL na constante `THUMBNAIL_URL`
 
 ## Dicas para Melhor Performance
 
-- Comprima seu vídeo antes de fazer upload
-- Use um formato moderno como MP4 com codificação H.264
-- Para vídeos longos, considere usar Vimeo ou YouTube em vez do Google Drive
-- Teste em dispositivos móveis para garantir que o vídeo carregue rapidamente
+- Use uma imagem de thumbnail otimizada (tamanho recomendado: 640x360 pixels)
+- Defina a duração exata do seu vídeo para que a oferta apareça no momento certo
+- Para vídeos do YouTube, adicione `?autoplay=1` ao final do URL para iniciar automaticamente quando o usuário clicar
+- Para vídeos do Vimeo, adicione `?autoplay=1&title=0&byline=0&portrait=0` para iniciar automaticamente e remover elementos da interface
+
+## Testando Localmente
+
+Para testar localmente com uma imagem de thumbnail:
+
+1. Coloque sua imagem na pasta `public` do projeto
+2. Use o caminho relativo, por exemplo: `const THUMBNAIL_URL = "/minha-imagem.jpg"`
