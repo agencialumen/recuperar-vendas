@@ -68,7 +68,7 @@ export default function VideoPlayer() {
           poster="https://iili.io/3jkPClt.jpg"
         >
           {/* Substitua o src abaixo pelo URL do seu vídeo real */}
-          <source src="testandocriativo.mp4" type="video/mp4" />
+          <source src="/testandocriativo.mp4" type="video/mp4" />
           Seu navegador não suporta vídeos HTML5.
         </video>
 
