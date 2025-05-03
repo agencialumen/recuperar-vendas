@@ -6,41 +6,30 @@ import { Button } from "@/components/ui/button"
 import { CheckCircle } from "lucide-react"
 import Link from "next/link"
 
-// Coloque seu link de vídeo aqui
-const VIDEO_URL = "https://drive.google.com/file/d/1_8SiPuzoSqFN3WcTYfUGy0-W_Zfz_x2C/view?usp=sharing"
+// ===== CONFIGURAÇÕES DO VÍDEO - EDITE APENAS ESTAS LINHAS =====
+// URL do vídeo (YouTube, Vimeo, etc.)
+const VIDEO_URL = "https://vimeo.com/986929884" // Substitua pelo seu link de vídeo
+
+// URL da imagem de capa (thumbnail)
+const THUMBNAIL_URL = "https://iili.io/3wF4CjR.jpg" // Substitua pelo URL da sua imagem de capa
+
+// Duração do vídeo em segundos (para mostrar a oferta)
+const VIDEO_DURATION = 50 // Substitua pela duração real do seu vídeo em segundos
+// =============================================================
 
 export default function VideoPlayer() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [videoCompleted, setVideoCompleted] = useState(false)
   const [showOffer, setShowOffer] = useState(false)
 
-  // Função para converter link do Google Drive para formato incorporável
-  const getEmbedUrl = (url: string) => {
-    // Verifica se é um link do Google Drive
-    if (url.includes("drive.google.com/file/d/")) {
-      // Extrai o ID do arquivo do URL do Google Drive
-      const fileIdMatch = url.match(/\/d\/([^/]+)/)
-      if (fileIdMatch && fileIdMatch[1]) {
-        const fileId = fileIdMatch[1]
-        return `https://drive.google.com/file/d/${fileId}/preview`
-      }
-    }
-
-    // Se não for do Google Drive, retorna o URL original
-    return url
-  }
-
-  const embedUrl = getEmbedUrl(VIDEO_URL)
-
   // Função para iniciar o vídeo
   const handlePlay = () => {
     setIsPlaying(true)
 
-    // Para fins de demonstração, simulamos o término do vídeo após 30 segundos
-    // Em produção, você usaria a mensagem de evento do iframe
+    // Simula o término do vídeo após a duração configurada
     setTimeout(() => {
       setVideoCompleted(true)
-    }, 30000)
+    }, VIDEO_DURATION * 1000)
   }
 
   // Efeito para mostrar a oferta com uma animação suave após o vídeo terminar
@@ -55,20 +44,26 @@ export default function VideoPlayer() {
   return (
     <div className="space-y-4">
       <div className="relative aspect-video bg-gray-950 rounded-lg overflow-hidden shadow-md">
-        {/* Thumbnail/Preview do vídeo */}
+        {/* Thumbnail personalizada com botão de play */}
         {!isPlaying && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center p-3 z-10">
-            <div className="mb-3 text-center">
-              <h3 className="text-sm font-bold mb-1 text-gray-100">
+          <div
+            className="absolute inset-0 bg-cover bg-center z-10 flex flex-col items-center justify-center p-3"
+            style={{ backgroundImage: `url(${THUMBNAIL_URL})`, backgroundSize: "cover" }}
+          >
+            {/* Overlay escuro para melhorar a legibilidade do texto */}
+            <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+
+            <div className="mb-3 text-center relative z-10">
+              <h3 className="text-sm font-bold mb-1 text-white">
                 Descubra como este método natural está transformando a saúde de milhares de crianças
               </h3>
-              <p className="text-gray-400 text-xs">
+              <p className="text-gray-200 text-xs">
                 Uma mensagem especial para você de uma mãe que já passou pelo mesmo desafio
               </p>
             </div>
             <button
               onClick={handlePlay}
-              className="bg-teal-600 hover:bg-teal-700 text-white rounded-full p-3 transition-all active:scale-[0.95] shadow-md"
+              className="bg-teal-600 hover:bg-teal-700 text-white rounded-full p-3 transition-all active:scale-[0.95] shadow-md relative z-10"
               aria-label="Reproduzir vídeo"
             >
               <Play size={20} fill="white" />
@@ -79,7 +74,7 @@ export default function VideoPlayer() {
         {/* Vídeo incorporado (iframe) */}
         {isPlaying && (
           <iframe
-            src={embedUrl}
+            src={VIDEO_URL}
             className="w-full h-full"
             frameBorder="0"
             allowFullScreen
