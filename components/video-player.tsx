@@ -8,7 +8,7 @@ import Link from "next/link"
 
 // ===== CONFIGURAÇÕES DO VÍDEO - EDITE APENAS ESTAS LINHAS =====
 // URL do vídeo (YouTube, Vimeo, etc.)
-const VIDEO_URL = "https://vimeo.com/986929884" // Substitua pelo seu link de vídeo
+const VIDEO_URL = "https://vimeo.com/1081126802/7c34767b59?ts=0&share=copy" // Substitua pelo seu link de vídeo
 
 // URL da imagem de capa (thumbnail)
 const THUMBNAIL_URL = "https://iili.io/3wF4CjR.jpg" // Substitua pelo URL da sua imagem de capa
