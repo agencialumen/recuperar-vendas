@@ -58,7 +58,7 @@ export default function VideoPlayer() {
                 Descubra como este método natural está transformando a saúde de milhares de crianças
               </h3>
               <p className="text-gray-200 text-xs">
-                Uma mensagem especial para você de uma mãe que já passou pelo mesmo desafio
+                -
               </p>
             </div>
             <button
