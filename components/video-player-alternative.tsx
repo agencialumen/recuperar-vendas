@@ -6,31 +6,14 @@ import { Button } from "@/components/ui/button"
 import { CheckCircle } from "lucide-react"
 import Link from "next/link"
 
-// Coloque seu link de vídeo aqui
-const VIDEO_URL = "https://drive.google.com/file/d/1_8SiPuzoSqFN3WcTYfUGy0-W_Zfz_x2C/view?usp=sharing"
+// Alternativa usando Vimeo, YouTube ou outro serviço de hospedagem de vídeo
+// Substitua esta URL pelo link do seu vídeo
+const VIDEO_URL = "https://vimeo.com/1081126802/7c34767b59?ts=0&share=copy" // Exemplo com Vimeo
 
-export default function VideoPlayer() {
+export default function VideoPlayerAlternative() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [videoCompleted, setVideoCompleted] = useState(false)
   const [showOffer, setShowOffer] = useState(false)
-
-  // Função para converter link do Google Drive para formato incorporável
-  const getEmbedUrl = (url: string) => {
-    // Verifica se é um link do Google Drive
-    if (url.includes("drive.google.com/file/d/")) {
-      // Extrai o ID do arquivo do URL do Google Drive
-      const fileIdMatch = url.match(/\/d\/([^/]+)/)
-      if (fileIdMatch && fileIdMatch[1]) {
-        const fileId = fileIdMatch[1]
-        return `https://drive.google.com/file/d/${fileId}/preview`
-      }
-    }
-
-    // Se não for do Google Drive, retorna o URL original
-    return url
-  }
-
-  const embedUrl = getEmbedUrl(VIDEO_URL)
 
   // Função para iniciar o vídeo
   const handlePlay = () => {
@@ -79,7 +62,7 @@ export default function VideoPlayer() {
         {/* Vídeo incorporado (iframe) */}
         {isPlaying && (
           <iframe
-            src={embedUrl}
+            src={VIDEO_URL}
             className="w-full h-full"
             frameBorder="0"
             allowFullScreen
