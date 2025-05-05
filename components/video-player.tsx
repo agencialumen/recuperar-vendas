@@ -102,8 +102,8 @@ export default function VideoPlayer() {
           </div>
           <h3 className="text-lg font-bold mb-2 text-gray-200">Método Completo de Saúde Infantil Natural</h3>
           <div className="flex items-center gap-2 mb-3">
-            <span className="text-gray-500 line-through text-sm">De R$97</span>
-            <span className="text-xl font-bold text-teal-400">Por apenas R$47</span>
+            <span className="text-gray-500 line-through text-sm">De R$29.90</span>
+            <span className="text-xl font-bold text-teal-400">Por apenas R$19.90</span>
           </div>
 
           <div className="flex items-center gap-3 mb-4">
@@ -112,7 +112,7 @@ export default function VideoPlayer() {
                 BÔNUS
               </div>
               <img
-                src="/placeholder.svg?height=80&width=80"
+                src="https://iili.io/3Now0J4.jpg"
                 alt="Produto"
                 className="w-full h-full rounded-lg shadow-sm object-cover"
               />
