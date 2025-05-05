@@ -79,14 +79,14 @@ export default function CheckoutRecoveryPage() {
             <TestimonialCard
               name="Ana Paula"
               location="São Paulo, SP"
-              image="/placeholder.svg?height=60&width=60"
+              image="https://iili.io/3No3THg.md.jpg"
               text="Meu filho tinha gripes constantes. Depois de aplicar o método, já são 3 meses sem nenhum problema."
               rating={5}
             />
             <TestimonialCard
               name="Mariana Costa"
               location="Rio de Janeiro, RJ"
-              image="/placeholder.svg?height=60&width=60"
+              image="https://iili.io/3NoFf7n.md.jpg"
               text="Eu estava cansada de tantos antibióticos. Esse método natural mudou completamente nossa rotina."
               rating={5}
             />
