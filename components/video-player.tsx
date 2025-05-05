@@ -137,7 +137,7 @@ export default function VideoPlayer() {
 
           {/* CTA Button */}
           <div className="text-center">
-            <Link href="/checkout?discount=true">
+            <Link href="https://pay.kirvano.com/5a2711a1-3c63-4d2e-a5e8-ec1bfc39fe51">
               <Button className="bg-teal-600 hover:bg-teal-700 text-white font-medium py-3 px-4 rounded-full text-sm w-full shadow-md active:scale-[0.98] transition-transform">
                 GARANTIR MINHA OFERTA ESPECIAL
               </Button>
